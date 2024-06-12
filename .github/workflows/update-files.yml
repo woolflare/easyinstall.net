@@ -32,23 +32,26 @@ jobs:
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="description" content="Automatic installation script collection.">
             <title>EasyInstall - easyinstall.net</title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" rel="stylesheet">
         </head>
         <body>
-            <h1>Usage</h1>
-            <p>To install a specific package using <code>EasyInstall</code>, use the following <code>curl</code> command:</p>
-            <pre><code>curl -s https://ezi.sh/[package_name] | sh</code></pre>
-            <p>Replace <code>[package_name]</code> with the name of the desired script. For example, to install <code>homebrew</code>, you would use:</p>
-            <pre><code>curl -s https://ezi.sh/homebrew | sh</code></pre>
-            <h1>Available Scripts List</h1>
-            <table border="1">
-                <thead>
-                    <tr><th>File Name</th><th>Command</th><th>Source</th></tr>
-                </thead>
-                <tbody>
-                    $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td>\(.key)</td><td><code>sh <(curl -s https://ezi.sh/\(.key))</code></td><td><a href=\"\(.value)\">Link</a></td></tr>"' packages.json)
-                </tbody>
-            </table>
-            <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
+            <div class="container">
+                <h1>Usage</h1>
+                <p>To install a specific package using <code>EasyInstall</code>, use the following <code>curl</code> command:</p>
+                <p><code>curl -s https://ezi.sh/[package_name] | sh</code></p>
+                <p>Replace <code>[package_name]</code> with the name of the desired script. For example, to install <code>homebrew</code>, you would use:</p>
+                <p><code>curl -s https://ezi.sh/homebrew | sh</code></p>
+                <h1>Available Scripts List</h1>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>File Name</th><th>Command</th><th>Source</th></tr>
+                    </thead>
+                    <tbody>
+                        $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td>\(.key)</td><td><code>sh <(curl -s https://ezi.sh/\(.key))</code></td><td><a href=\"\(.value)\">Link</a></td></tr>"' packages.json)
+                    </tbody>
+                </table>
+                <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
+            </div>
         </body>
         </html>
         EOF
