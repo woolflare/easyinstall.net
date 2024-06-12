@@ -45,7 +45,7 @@ jobs:
                     <tr><th>File Name</th><th>Command</th><th>Source</th></tr>
                 </thead>
                 <tbody>
-                    $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td>\(.key)</td><td><code>sh <(curl -s https://ezi.sh/\(.key))</code></td><td><a href=\"\(.value)\">Link</a></td></tr>"' scripts.json)
+                    $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td>\(.key)</td><td><code>sh <(curl -s https://ezi.sh/\(.key))</code></td><td><a href=\"\(.value)\">Link</a></td></tr>"' packages.json)
                 </tbody>
             </table>
             <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
