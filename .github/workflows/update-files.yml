@@ -68,10 +68,10 @@ jobs:
                 <h1 id="packages">Available Packages List</h1>
                 <table class="table table-bordered">
                     <thead class="table-dark">
-                        <tr><th>Package Name</th><th>Command</th><th>Source</th></tr>
+                        <tr><th>Package Name</th><th>Description</th></tr>
                     </thead>
                     <tbody>
-                        $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td>\(.key)</td><td><code>sh <(curl -s https://ezi.sh/\(.key))</code></td><td><a href=\"\(.value)\">Link</a></td></tr>"' packages.json)
+                        $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td><a href=\"/\(.key)\">\(.key)</a></td><td>\(.value.description)</td></tr>"' package.json)
                     </tbody>
                 </table>
                 <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
