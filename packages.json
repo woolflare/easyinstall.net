@@ -39,6 +39,11 @@
         "website": "https://github.com/apernet/hysteria",
         "installer_source": "https://raw.githubusercontent.com/apernet/hysteria/master/scripts/install_server.sh"
     },
+    "nvm": {
+        "description": "Node Version Manager",
+        "website": "https://github.com/nvm-sh/nvm",
+        "installer_source": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh"
+    },
     "ohmyzsh": {
         "description": "A delightful community-driven framework for managing your zsh configuration",
         "website": "https://ohmyz.sh",
