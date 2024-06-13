@@ -1,7 +1,12 @@
 const fs = require('fs');
 const packages = require('./packages.json');
 
-let indexContent = `<!DOCTYPE html>
+const generateIndexContent = (packages) => {
+    let packageRows = Object.entries(packages).map(([key, value]) => {
+        return `<tr><td><a href="/${key}.html">${key}</a></td><td>${value.description}</td></tr>`;
+    }).join('');
+
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,21 +50,18 @@ let indexContent = `<!DOCTYPE html>
             <thead class="table-dark">
                 <tr><th>Package Name</th><th>Description</th></tr>
             </thead>
-            <tbody>`;
-Object.entries(packages).forEach(([key, value]) => {
-    indexContent += `<tr><td><a href="/${key}.html">${key}</a></td><td>${value.description}</td></tr>`;
-});
-indexContent += `            </tbody>
+            <tbody>
+                ${packageRows}
+            </tbody>
         </table>
         <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
     </div>
 </body>
 </html>`;
+};
 
-fs.writeFileSync('index.html', indexContent);
-
-Object.entries(packages).forEach(([key, value]) => {
-    let packageContent = `<!DOCTYPE html>
+const generatePackageContent = (key, value) => {
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -87,6 +89,12 @@ Object.entries(packages).forEach(([key, value]) => {
     </div>
 </body>
 </html>`;
+};
 
+const indexContent = generateIndexContent(packages);
+fs.writeFileSync('index.html', indexContent);
+
+Object.entries(packages).forEach(([key, value]) => {
+    const packageContent = generatePackageContent(key, value);
     fs.writeFileSync(`${key}.html`, packageContent);
 });
