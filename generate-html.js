@@ -3,7 +3,7 @@ const packages = require('./packages.json');
 
 const generateIndexContent = (packages) => {
     let packageRows = Object.entries(packages).map(([key, value]) => {
-        return `<tr><td><a href="/${key}.html">${key}</a></td><td>${value.description}</td></tr>`;
+        return `<tr><td><a href="/${key}">${key}</a></td><td>${value.description}</td></tr>`;
     }).join('');
 
     return `<!DOCTYPE html>
