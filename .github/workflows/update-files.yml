@@ -71,7 +71,7 @@ jobs:
                         <tr><th>Package Name</th><th>Description</th></tr>
                     </thead>
                     <tbody>
-                        $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td><a href=\"/\(.key)\">\(.key)</a></td><td>\(.value.description)</td></tr>"' package.json)
+                        $(jq -r 'to_entries | sort_by(.key)[] | "<tr><td><a href=\"/\(.key)\">\(.key)</a></td><td>\(.value.description)</td></tr>"' packages.json)
                     </tbody>
                 </table>
                 <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
