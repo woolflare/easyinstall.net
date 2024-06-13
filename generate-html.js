@@ -80,7 +80,7 @@ Object.entries(packages).forEach(([key, value]) => {
     <div class="container">
         <h1 id="usage">${key}</h1>
         <p>${value.description}</p>
-        <p><a href="${value.website}">Website</a> | <a href="${value.installer_url}">Installer Source</a></p>
+        <p><a href="${value.website}" target="_blank" rel="noopener noreferrer">Website</a> | <a href="${value.installer_source}" target="_blank" rel="noopener noreferrer">Installer Source</a></p>
         <h1>Install ${key}</h1>
         <p>Paste this into Terminal.app or a shell prompt, and press enter.</p>
         <p><code>curl -s https://ezi.sh/${key} | sh</code><p>
