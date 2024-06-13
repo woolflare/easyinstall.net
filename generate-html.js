@@ -36,5 +36,5 @@ for (const [key, value] of Object.entries(packages)) {
   </body>
   </html>`;
 
-  fs.writeFileSync(`${key}.html', packageContent);
+  fs.writeFileSync(`${key}.html`, packageContent);
 }
