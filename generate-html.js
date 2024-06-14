@@ -5,6 +5,7 @@ const generateIndexContent = (packages) => {
     let packageRows = Object.entries(packages).map(([key, value]) => {
         return `<tr><td><a href="/${key}">${key}</a></td><td>${value.description}</td></tr>`;
     }).join('');
+const currentYear = new Date().getFullYear();
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -61,7 +62,8 @@ const generateIndexContent = (packages) => {
         </div>
         <div class="hero-foot">
             <div class="footer has-text-centered">
-                <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
+                <p class="block">For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
+                <p>&copy; ${currentYear} easyinstall.net</p>
             </div>
         </div>
     </div>
@@ -117,7 +119,8 @@ const generatePackageContent = (key, value) => {
         </div>
         <div class="hero-foot">
             <div class="footer has-text-centered">
-                <p>For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
+                <p class="block">For more details, visit our <a href="https://github.com/woolflare/EasyInstall">GitHub repository</a>.</p>
+                <p>&copy; ${currentYear} easyinstall.net</p>
             </div>
         </div>
     </div>
