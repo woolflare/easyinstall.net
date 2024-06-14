@@ -1,5 +1,5 @@
 const fs = require('fs');
-const packages = require('./packages.json');
+const packages = require('./easyinstall.json');
 
 const generateIndexContent = (packages) => {
     let packageRows = Object.entries(packages).map(([key, value]) => {
