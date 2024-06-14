@@ -15,6 +15,10 @@ jobs:
       with:
         node-version: '20'
 
+    - name: Download easyinstall.json
+      run: |
+        curl -o easyinstall.json https://raw.githubusercontent.com/woolflare/EasyInstall/main/easyinstall.json
+
     - name: Generate HTML files
       run: node generate-html.js
 
