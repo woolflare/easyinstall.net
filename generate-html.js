@@ -1,12 +1,11 @@
 const fs = require('fs');
 const packages = require('./easyinstall.json');
+const currentYear = new Date().getFullYear();
 
 const generateIndexContent = (packages) => {
     let packageRows = Object.entries(packages).map(([key, value]) => {
         return `<tr><td><a href="/${key}">${key}</a></td><td>${value.description}</td></tr>`;
     }).join('');
-const currentYear = new Date().getFullYear();
-
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
