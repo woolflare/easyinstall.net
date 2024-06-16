@@ -16,9 +16,13 @@
             top: 5px;
             right: 5px;
             cursor: pointer;
+            display: none;
         }
         .pre-container {
             position: relative;
+        }
+        .pre-container:hover .copy-button {
+            display: inline-block;
         }
     </style>
 </head>
@@ -49,8 +53,9 @@
                             <h1 class="has-text-weight-light">Install dyn.la</h1>
                             <p>Paste this into Terminal.app or a shell prompt, and press enter.</p>
                             <div class="pre-container">
-                            <pre id="command">curl -fsSL https://ezi.sh/dyn.la | sh</pre>
-                            <button class="button is-small copy-button" id="copyButton" onclick="copyCommand()">Copy</button>
+                                <pre id="command">curl -fsSL https://ezi.sh/dyn.la | sh</pre>
+                                <button class="button is-small copy-button" id="copyButton" onclick="copyCommand()">Copy</button>
+                            </div>
                         </div>
                     </div>
                 </div>
