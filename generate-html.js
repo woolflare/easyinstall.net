@@ -42,9 +42,9 @@ const generateIndexContent = (packages) => {
                         <div class="content">
                             <h1 class="has-text-weight-light">Usage</h1>
                             <p>To install a specific package using <code>EasyInstall</code>, use the following <code>curl</code> command:</p>
-                            <pre>sh <(curl -s https://ezi.sh/[package_name])</pre>
+                            <pre>curl -fsSL https://ezi.sh/[package_name] | sh</pre>
                             <p>Replace <code>[package_name]</code> with the name of the desired package. For example, to install <code>homebrew</code>, you would use:</p>
-                            <pre>sh <(curl -s https://ezi.sh/homebrew)</pre>
+                            <pre>curl -fsSL https://ezi.sh/homebrew | sh</pre>
                             <h1 class="has-text-weight-light">Available Packages List</h1>
                             <table class="table is-bordered">
                                 <thead>
@@ -110,7 +110,7 @@ const generatePackageContent = (key, value) => {
                             <p><a href="${value.website}" target="_blank" rel="noopener noreferrer">Website</a> | <a href="${value.installer_source}" target="_blank" rel="noopener noreferrer">Installer Source</a></p>
                             <h1 class="has-text-weight-light">Install ${key}</h1>
                             <p>Paste this into Terminal.app or a shell prompt, and press enter.</p>
-                            <pre>sh <(curl -s https://ezi.sh/${key})</pre>
+                            <pre>curl -fsSL https://ezi.sh/${key} | sh</pre>
                         </div>
                     </div>
                 </div>
