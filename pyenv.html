@@ -10,6 +10,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+    <style>
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+        .pre-container {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <div class="hero is-fullheight">
@@ -37,7 +48,9 @@
                             <p><a href="https://github.com/pyenv/pyenv" target="_blank" rel="noopener noreferrer">Website</a> | <a href="https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer" target="_blank" rel="noopener noreferrer">Installer Source</a></p>
                             <h1 class="has-text-weight-light">Install pyenv</h1>
                             <p>Paste this into Terminal.app or a shell prompt, and press enter.</p>
-                            <pre>curl -fsSL https://ezi.sh/pyenv | sh</pre>
+                            <div class="pre-container">
+                            <pre id="command">curl -fsSL https://ezi.sh/pyenv | sh</pre>
+                            <button class="button is-small copy-button" id="copyButton" onclick="copyCommand()">Copy</button>
                         </div>
                     </div>
                 </div>
@@ -50,5 +63,18 @@
             </div>
         </div>
     </div>
+    <script>
+        function copyCommand() {
+            const commandText = document.getElementById('command').textContent;
+            navigator.clipboard.writeText(commandText).then(() => {
+                const copyButton = document.getElementById('copyButton');
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copied';
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                }, 1000);
+            });
+        }
+    </script>
 </body>
 </html>
