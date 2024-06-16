@@ -83,6 +83,17 @@ const generatePackageContent = (key, value) => {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+    <style>
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+        .pre-container {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <div class="hero is-fullheight">
@@ -110,7 +121,9 @@ const generatePackageContent = (key, value) => {
                             <p><a href="${value.website}" target="_blank" rel="noopener noreferrer">Website</a> | <a href="${value.installer_source}" target="_blank" rel="noopener noreferrer">Installer Source</a></p>
                             <h1 class="has-text-weight-light">Install ${key}</h1>
                             <p>Paste this into Terminal.app or a shell prompt, and press enter.</p>
-                            <pre>curl -fsSL https://ezi.sh/${key} | sh</pre>
+                            <div class="pre-container">
+                            <pre id="command">curl -fsSL https://ezi.sh/${key} | sh</pre>
+                            <button class="button is-small copy-button" id="copyButton" onclick="copyCommand()">Copy</button>
                         </div>
                     </div>
                 </div>
@@ -123,6 +136,19 @@ const generatePackageContent = (key, value) => {
             </div>
         </div>
     </div>
+    <script>
+        function copyCommand() {
+            const commandText = document.getElementById('command').textContent;
+            navigator.clipboard.writeText(commandText).then(() => {
+                const copyButton = document.getElementById('copyButton');
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copied';
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                }, 1000);
+            });
+        }
+    </script>
 </body>
 </html>`;
 };
